@@ -9,6 +9,16 @@ import { SectionDemos } from "components/SectionDemos";
 import { SectionLayouts } from "components/SectionLayouts";
 import React from "react";
 
+declare global {
+  var MORE_DEMOS: {
+    img: string;
+    text: string;
+    subText: string;
+    link: string;
+    tags?: string[];
+  }[];
+}
+
 function App() {
   return (
     <div className="relative">

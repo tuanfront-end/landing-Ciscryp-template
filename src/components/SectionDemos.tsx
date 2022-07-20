@@ -2,8 +2,12 @@ import React from "react";
 import Heading from "./Heading";
 import home1 from "images/home/1.png";
 import home2 from "images/home/2.png";
+import home3 from "images/home/3.png";
 import Badge from "./Badge";
 import { ArrowRightIcon } from "@heroicons/react/outline";
+import Button from "./Button";
+import { ArrowNarrowRightIcon } from "@heroicons/react/solid";
+import { CONSTANTS } from "constants/constants";
 
 export const SectionDemos = () => {
   const data = [
@@ -20,6 +24,14 @@ export const SectionDemos = () => {
       link: "https://chisnghiax.com/ciscryp/home2",
       tags: [],
     },
+    {
+      img: home3,
+      text: "Home demo 3",
+      subText: "Home Default",
+      link: "https://chisnghiax.com/ciscryp/home3",
+      tags: ["new!"],
+    },
+    ...(window.MORE_DEMOS || []),
   ];
 
   const renderItem = (item: typeof data[number], index: number) => {
@@ -75,21 +87,23 @@ export const SectionDemos = () => {
     <section className="dark text-slate-200">
       <Heading className="text-center text-slate-100">
         {" "}
-        <i className="text-orange-500"> 2+</i> Home Pages
+        <i className="text-orange-500"> {data.length}+</i> Home Pages
       </Heading>
       <p className="mt-4 text-lg text-center text-slate-300 mx-auto max-w-screen-md">
         Modern, Elegant & Beautiful your NFT site. <br /> We plan to show new
         demos regularly 🍕
       </p>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-11 mt-12">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-y-11 mt-12">
         {data.map(renderItem)}
-        <div className="hidden lg:block shadow-2xl h-0 aspect-w-8 aspect-h-12 bg-slate-800 bg-opacity-60 rounded-xl border-2 border-slate-700">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h3 className="uppercase tracking-widest text-2xl">
-              15+ Inner pages
-            </h3>
-          </div>
-        </div>
+      </div>
+      <div className="flex justify-center mt-12">
+        <Button
+          href={CONSTANTS.liveDemoUrl}
+          className="text-base xl:px-12 py-4 items-center"
+        >
+          <span> View more 15+ Inner pages</span>
+          <ArrowNarrowRightIcon className="w-6 h-6 ml-2 mt-0.5" />
+        </Button>
       </div>
     </section>
   );
